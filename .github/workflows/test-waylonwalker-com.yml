@@ -13,7 +13,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  🧪test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -32,6 +32,27 @@ jobs:
         python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - run: pip install testproject-python-sdk
+    - name: Run TestProject Agent
+      env:
+        TP_API_KEY: ${{ secrets.TP_API_KEY }}
+      run: |
+        envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+        docker-compose -f docker-compose.yml up -d
+    - name: Wait for Agent to Register
+      run: |
+        trap 'kill $(jobs -p)' EXIT
+        attempt_counter=0
+        max_attempts=45
+        mkdir -p build/reports/agent
+        docker-compose -f docker-compose.yml logs -f | tee build/reports/agent/log.txt&
+        until curl -s http://localhost:8585/api/status | jq '.registered' | grep true; do
+          if [ ${attempt_counter} -eq ${max_attempts} ]; then
+            echo "Agent failed to register. Terminating..."
+            exit 1
+          fi
+          attempt_counter=$(($attempt_counter+1))
+          sleep 1
+        done
     - run: python sample.py
       env:
         TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }} 
