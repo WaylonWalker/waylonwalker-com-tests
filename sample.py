@@ -3,7 +3,7 @@ from src.testproject.sdk.drivers import webdriver
 REPOS = ['find-kedro', 'kedro-static-viz', 'kedro-action', 'steel-toes', ]
 RSS = 'https://waylonwalker.com/rss'
 
-def test_all_links(driver, url):
+# def test_all_links(driver, url):
     
 
 def test_title_on_every_page(driver):
@@ -11,7 +11,7 @@ def test_title_on_every_page(driver):
     for post in feed:
         driver.get(post['link'])
 
-@report(test='Test Repos Loaded')
+# @report(test='Test Repos Loaded')
 def test_repos_loaded():
     """
     Test that GitHub repo cards are loaded client side.
