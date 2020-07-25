@@ -8,6 +8,7 @@ def test_github_packages(driver):
     for repo in REPOS:
         if repo not in header_text:
             return False
+        print(f'{repo} has an h2 tag')
     return True
         
     
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     passed = headers[0].is_displayed()
     
     print('these are the headers')
-    print(headers)
+    print([header.text for header in driver.find_elements_by_tag_name("h2")])
     print()
     print('number of headers: ', len(headers))
     print("Test passed") if passed else print("Test failed")
