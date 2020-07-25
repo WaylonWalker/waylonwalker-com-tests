@@ -53,6 +53,12 @@ jobs:
           attempt_counter=$(($attempt_counter+1))
           sleep 1
         done
-    - run: python sample.py
+    - run: python sample.py > run_sample.log
       env:
         TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }} 
+
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
+      with:
+        name: run-sample-log
+        path: run_sample.log
