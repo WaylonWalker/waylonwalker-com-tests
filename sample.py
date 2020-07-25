@@ -1,6 +1,13 @@
 from src.testproject.sdk.drivers import webdriver
 
 REPOS = ['find-kedro', 'kedro-static-viz', 'kedro-action', 'steel-toes', ]
+RSS = 'https://waylonwalker.com/rss'
+
+def test_title_on_every_page(driver):
+    feed = feedparser.parse("https://waylonwalker.com/rss")['entries']
+    for post in feed:
+        driver.get(post['link'])
+        
 
 def test_github_packages(driver):
     "check that each repo is represented in an h2"
@@ -26,5 +33,9 @@ if __name__ == "__main__":
     print()
     print('number of headers: ', len(headers))
     print("Test passed") if passed else print("Test failed")
+    print('testing GitHub repos')
+    test_github_packages(driver)
+    # print('testing title on page')
+    # test_title_on_every_page(driver)
 
     driver.quit()
