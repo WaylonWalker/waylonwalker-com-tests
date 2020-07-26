@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     # - uses: nanasess/setup-chromedriver@master
     #   with:
     #     # Optional: do not specify to match Chrome's version
@@ -42,7 +42,7 @@ jobs:
       run: |
         trap 'kill $(jobs -p)' EXIT
         attempt_counter=0
-        max_attempts=45
+        max_attempts=100
         mkdir -p build/reports/agent
         docker-compose -f docker-compose.yml logs -f | tee build/reports/agent/log.txt&
         until curl -s http://localhost:8585/api/status | jq '.registered' | grep true; do
