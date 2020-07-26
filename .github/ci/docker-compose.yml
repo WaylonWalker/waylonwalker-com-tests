@@ -10,7 +10,7 @@ services:
       TP_API_KEY: "${TP_API_KEY}"
       TP_AGENT_ALIAS: "GitHub Action Agent"
       TP_AGENT_TEMP: "true"
-      TP_SDK_PORT: "8585"
+      TP_SDK_PORT: "8686"
       CHROME: "chrome:4444"
       CHROME_EXT: "localhost:5555"
       FIREFOX: "firefox:4444"
