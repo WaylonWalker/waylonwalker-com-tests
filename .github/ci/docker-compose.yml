@@ -8,7 +8,6 @@ services:
       - firefox
     environment:
       TP_API_KEY: "${TP_API_KEY}"
-      TP_AGENT_ALIAS: "GitHub Action Agent"
       TP_AGENT_TEMP: "true"
       TP_SDK_PORT: "8686"
       CHROME: "chrome:4444"
