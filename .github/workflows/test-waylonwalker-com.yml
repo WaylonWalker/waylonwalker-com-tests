@@ -43,28 +43,14 @@ jobs:
           fi
           attempt_counter=$(($attempt_counter+1))
           echo
-          echo
-          echo ----------------------------------
-          date
-          echo attempt $attempt_counter
-          echo status
-          curl -s http://localhost:8585/api/status || echo "8686 api not up"
-          echo status
-          curl -s http://localhost:8686/api/status || echo "8686 api not up"
-          echo
-          echo home
-          curl -s http://localhost:8585/ || echo "localhost:8585 is not up"
-          echo home
-          curl -s http://localhost:8686/ || echo "localhost:8686 is not up"
-
           sleep 1
         done
-    - run: pytest > pytest.log
+    - run: pytest
       env:
         TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }} 
 
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v2
-      with:
-        name: pytest-log
-        path: pytest.log
+    # - name: Archive code coverage results
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: pytest-log
+    #     path: pytest.log
