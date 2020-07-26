@@ -47,10 +47,10 @@ jobs:
           date
           echo attempt $attempt_counter
           echo status
-          curl -s http://localhost:8585/api/status
+          curl -s http://localhost:8585/api/status || echo "api not up"
           echo
           echo home
-          curl -s http://localhost:8585/
+          curl -s http://localhost:8585/ || echo "localhost:8585 is not up"
 
           sleep 1
         done
