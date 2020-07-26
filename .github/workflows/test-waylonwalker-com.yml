@@ -31,7 +31,7 @@ jobs:
       with:
         python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-    - run: pip install testproject-python-sdk feedparser
+    - run: pip install -r requirements.txt
     - name: Run TestProject Agent
       env:
         TP_API_KEY: ${{ secrets.TP_API_KEY }}
