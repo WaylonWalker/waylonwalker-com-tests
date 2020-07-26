@@ -1,0 +1,3 @@
+testproject-python-sdk
+feedparser
+pytest
