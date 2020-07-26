@@ -27,6 +27,7 @@ jobs:
         TP_API_KEY: ${{ secrets.TP_API_KEY }}
       run: |
         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+        cat docker-compose.yml
         docker-compose -f docker-compose.yml up -d
     - name: Wait for Agent to Register
       run: |
