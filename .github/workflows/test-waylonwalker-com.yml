@@ -47,7 +47,8 @@ jobs:
         done
     - run: pytest
       env:
-        TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }} 
+        TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }}
+        TP_AGENT_URL: http://localhost:8585
 
     # - name: Archive code coverage results
     #   uses: actions/upload-artifact@v2
