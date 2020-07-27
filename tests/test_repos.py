@@ -8,7 +8,6 @@ REPOS = [
     "kedro-action",
     "steel-toes",
 ]
-RSS = "https://waylonwalker.com/rss"
 
 def test_repos_loaded(slow_driver):
     """
