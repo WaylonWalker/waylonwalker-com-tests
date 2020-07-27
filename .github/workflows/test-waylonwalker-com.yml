@@ -29,7 +29,6 @@ jobs:
         TP_API_KEY: ${{ secrets.TP_API_KEY }}
       run: |
         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
-        cat docker-compose.yml
         docker-compose -f docker-compose.yml up -d
     - name: Wait for Agent to Register
       run: bash .github/ci/wait_for_agent.sh
@@ -37,9 +36,3 @@ jobs:
       env:
         TP_DEV_TOKEN: ${{ secrets.TP_DEV_TOKEN }}
         TP_AGENT_URL: http://localhost:8585
-
-    # - name: Archive code coverage results
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: pytest-log
-    #     path: pytest.log
