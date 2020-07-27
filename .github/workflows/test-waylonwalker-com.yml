@@ -16,8 +16,7 @@ jobs:
     - uses: actions/checkout@main
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+        python-version: '3.8'
     - run: pip install -r requirements.txt
     - name: Run TestProject Agent
       env:
