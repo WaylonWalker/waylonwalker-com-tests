@@ -9,8 +9,8 @@ I chose to start with the GitHub repos as they seemed a bit more straight forwar
 
 [waylonwalker.com](https://waylonwalker.com/) has his favorite repositories pinned to the top of the website.  The information for these cards is dynamic and pulled in from the github api client side.  This means that as the pages loads JavaScript will execute to pull information from GitHubs api, then transform that data into the DOM, and render it on the page.
 
-<p style='text-align: center'>
-<img src='https://waylonwalker.com/open-source-cards.png' style='width:600px; max-width:80%; margin: auto;' alt='Open Source cards as they look on waylonwalker.com'/>
+<p align='center' style='text-align: center'>
+<img src='https://waylonwalker.com/open-source-cards.png' width='500' style='width:500px; max-width:80%; margin: auto;' alt='Open Source cards as they look on waylonwalker.com'/>
 </p>
 
 > here is what the GitHub repo cards look like
@@ -38,7 +38,16 @@ _optional_
 
 To expedite development I went ahead and set up development environment in Digital Ocean.  This step is optional, you can run everything from your local machine, or completely from GitHub actions.  I felt like setting up an Ubuntu Droplet in Digital Ocean gave me a very close to production feel that I could quickly iterate on. This allowed me to get all of my tests working a bit quicker than just running them through GitHub, but being as similar as possible.  This allowed me to learn the ins and outs of setting up TestProject without needing to do a full install every time GitHub actions ran.
 
-[![Test Project Dev Machine setup notes card](https://waylonwalker.com/new-machine-tpio-rm.png)](https://waylonwalker.com/notes/new-machine-tpio)
+<p align='center' style='text-align: center'>
+<a href='https://waylonwalker.com/notes/new-machine-tpio'>
+  <img
+    width='500'
+    style='width:500px; max-width:80%; margin: auto;'
+    src="https://waylonwalker.com/new-machine-tpio-rm.png"
+    alt="Test Project Dev Machine setup notes card"
+  />
+  </a>
+</p>
 > I am not going to go into full dev machine setup here, but you can read my [setup notes](https://waylonwalker.com/notes/new-machine-tpio).
 
 ---
@@ -276,8 +285,9 @@ done
 Once the tests are running they will appear in the TestProject dashboard.  There are a number of failures that happened early on in development of the tests, but once they started passing they continued to pass.
 
 
-<p style='text-align: center'>
+<p align='center' style='text-align: center'>
   <img
+    width='800'
     style='width:800px; max-width:80%; margin: auto;'
     src="https://waylonwalker.com/tpio-test-repos.png"
     alt="My Dashboard for test_repos"
@@ -289,8 +299,9 @@ Once the tests are running they will appear in the TestProject dashboard.  There
 The dashboard also lets you drill in to see individual tests that have been run, select them, and see individual reports for each test. It converts the steps ran by the driver into a human-readable _flowchart_, and each step can be opened up to see the values that were pulled from the site by the driver.
 
 
-<p style='text-align: center'>
+<p align='center' style='text-align: center'>
   <img
+    width='350'
     style='width:350px; max-width:80%; margin: auto;'
     src="https://waylonwalker.com/test_repo_stars_loaded.png"
     alt="driver flow of test_repo_stars_loaded"
